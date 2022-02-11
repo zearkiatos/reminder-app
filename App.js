@@ -1,16 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Button, Text } from 'react-native';
+import Item from './src/components/Item';
 import data from './mocks/data.json';
 
 export default function App() {
+  const handlePress = () => {
+
+  };
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>Reminder</Text>
+      </View>
+      <Button title='Add' onPress={handlePress} />
       <FlatList
         data={data}
-        renderItem={}
-      >
-
-      </FlatList>
+        renderItem={Item}
+     />
     </View>
   );
 }
@@ -22,4 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    height: 60
+  }
 });
