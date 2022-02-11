@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableHighlight, Text, StyleSheet } from "react-native";
+import { TouchableHighlight, Text, StyleSheet, View } from "react-native";
 
 const Button = ({ title, onPress }) => (
   <TouchableHighlight style={styles.button} onPress={onPress}>
@@ -8,8 +8,16 @@ const Button = ({ title, onPress }) => (
 );
 
 const styles = StyleSheet.create({
-  button: {},
-  text: {}
+  button: {
+    backgroundColor: "blue",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 4
+  },
+  text: {
+    color: "#fff",
+    fontSize: 18
+  }
 });
 
 export default Button;
