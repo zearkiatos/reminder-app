@@ -9,7 +9,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>Reminder</Text>
+        <Text style={styles.title}>Reminder</Text>
       </View>
       <Button title='Add' onPress={handlePress} />
       <FlatList
@@ -24,10 +24,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   header: {
-    height: 60
+    height: 100,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd"
+  },
+  title: {
+    textAlign: "center",
+    marginTop: 50,
+    fontSize: 28
   }
 });
