@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, FlatList, Text, Modal } from "react-native";
 import Item from "./src/components/Item";
 import Button from "./src/components/Buttom";
+import Input from "./src/components/Input";
 import data from "./mocks/data.json";
 
 export default function App() {
@@ -22,6 +23,9 @@ export default function App() {
       <Modal visible={visible} animationType="slide">
         <View style={[styles.container, styles.center]}>
           <Text style={styles.modalTitle}>Add reminder</Text>
+          <View style={styles.view}>
+            <Input placeholder="Reminder" />
+          </View>
         </View>
       </Modal>
     </View>
@@ -58,6 +62,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee"
   },
   modalTitle: {
-    fontSize: 28,
+    fontSize: 28
+  },
+  view: {
+    height: 50,
+    margin: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
