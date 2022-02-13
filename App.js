@@ -8,8 +8,23 @@ import data from "./mocks/data.json";
 export default function App() {
   const [reminders, setReminders] = useState(data);
   const [visible, setVisible] = useState(false);
+  const [text, setText] = useState("");
   const handlePress = () => {
     setVisible(true);
+  };
+  const handleChange = (text) => {
+    setText(text);
+  };
+  const handleSave = () => {
+    setReminders([
+      {
+        key: Math.random().toString(36).split(".")[1],
+        title: text
+      },
+      ...reminders
+    ]);
+    setVisible(false);
+    setText("");
   };
   return (
     <View style={[styles.container, styles.gray]}>
@@ -24,8 +39,13 @@ export default function App() {
         <View style={[styles.container, styles.center]}>
           <Text style={styles.modalTitle}>Add reminder</Text>
           <View style={styles.view}>
-            <Input placeholder="Reminder" />
+            <Input
+              onChangeText={handleChange}
+              placeholder="Reminder"
+              value={text}
+            />
           </View>
+          <Button title="Save" onPress={handleSave} />
         </View>
       </Modal>
     </View>
